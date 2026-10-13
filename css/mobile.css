@@ -1,0 +1,95 @@
+/* ---------- Mobile polish: swipe carousels, action bar, tighter rhythm ---------- */
+
+/* sticky action bar (built by js/extras.js) — phones only */
+.mbar { display: none; }
+.cdots { display: none; }
+
+@media (max-width: 820px) {
+  /* tighter vertical rhythm */
+  .sec { padding-top: 64px; padding-bottom: 64px; }
+  .sec__head { margin-bottom: 32px; }
+  .page-hero { padding-top: 112px; padding-bottom: 28px; }
+  .page-hero .display { font-size: clamp(2.5rem, 11vw, 3.4rem); }
+  .page-hero + .sec { padding-top: 12px; }
+  .contact.page-hero { padding-bottom: 72px; }
+  .display { font-size: clamp(2.2rem, 10vw, 3rem); }
+
+  /* swipe carousels: team, values, flows, visit cards, home tiles */
+  .team, .values__grid, .flow, .visit__cards, .tiles__grid {
+    display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--pad)); padding: 6px var(--pad) 10px; scroll-padding-inline: var(--pad);
+  }
+  .team::-webkit-scrollbar, .values__grid::-webkit-scrollbar, .flow::-webkit-scrollbar, .visit__cards::-webkit-scrollbar, .tiles__grid::-webkit-scrollbar { display: none; }
+  .team > *, .values__grid > *, .flow > *, .visit__cards > *, .tiles__grid > * { flex: 0 0 82%; scroll-snap-align: start; }
+  .values__grid > div, .flow li { padding: 26px 22px 24px; border-radius: 8px; background: var(--cream); }
+  .flow:not(.flow--light) li, .values__grid--dark > div { background: rgba(239,230,212,.06); }
+  .values__grid > div::before, .flow li::after { left: 22px; width: calc(100% - 44px); top: 0; }
+  .flow li::before { left: 22px; }
+  .tile { min-height: 12rem; }
+  .member { padding: 24px; }
+
+  /* dot indicators under each carousel */
+  .cdots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+  .cdots i { width: 6px; height: 6px; border-radius: 999px; background: rgba(38,35,31,.22); transition: width .45s var(--ease), background .45s var(--ease); }
+  .cdots i.is-on { width: 22px; background: var(--gold); }
+  .sec--dark .cdots i { background: rgba(239,230,212,.25); }
+  .sec--dark .cdots i.is-on { background: #d4b676; }
+  /* first-view swipe hint: cards nudge left once */
+  .is-hint > :first-child { animation: swipeHint 1.4s var(--ease) .6s 1 both; }
+  @keyframes swipeHint { 40% { transform: translateX(-26px); } }
+
+  /* stats: 2 × 2 grid */
+  .stats__grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+  .stats__grid b { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+  .stats__grid span { font-size: .64rem; letter-spacing: .14em; }
+
+  /* filter chips: one swipeable row */
+  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--pad)); padding: 2px var(--pad); }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; padding: 12px 18px; }
+
+  /* FAQ: bigger tap targets */
+  .faq__i summary { padding: 20px 0; font-size: 1.22rem; }
+
+  /* hours: card look */
+  .visit > div:first-child { padding: 24px 20px; border-radius: 10px; background: var(--cream); }
+  .hours th, .hours td { padding: 12px 0; font-size: .92rem; }
+
+  /* lightbox: swipe-friendly, arrows at the bottom */
+  .lb { padding: 64px 0 90px; }
+  .lb img { border-radius: 0; max-height: 70vh; }
+  .lb__n { top: auto; bottom: 18px; translate: none; }
+  .lb__n--p { left: calc(50% - 76px); } .lb__n--n { right: calc(50% - 76px); }
+
+  /* tap feedback */
+  .btn:active, .tile:active, .member:active, .chip:active { transform: scale(.97); transition-duration: .15s; }
+  a, button, summary { -webkit-tap-highlight-color: transparent; }
+
+  /* sticky action bar */
+  .mbar {
+    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60;
+    display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 8px;
+    border-radius: 999px; background: rgba(33,30,25,.86); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: 0 14px 34px -14px rgba(0,0,0,.5);
+    transform: translate3d(0, 140%, 0); transition: transform .6s var(--ease);
+  }
+  .mbar.is-on { transform: none; }
+  .mbar a { display: flex; align-items: center; justify-content: center; gap: 8px; height: 46px; border-radius: 999px; font: 500 .72rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+  .mbar__call { padding: 0 18px; color: #efe6d4; border: 1px solid rgba(239,230,212,.25); }
+  .mbar__call svg { width: 16px; height: 16px; }
+  .mbar__book { background: #efe6d4; color: #211e19; }
+  .mbar__book:active, .mbar__call:active { transform: scale(.96); }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  .foot { padding-bottom: 100px; }
+}
+
+@media (max-width: 380px) {
+  .team > *, .values__grid > *, .flow > *, .visit__cards > *, .tiles__grid > * { flex-basis: 88%; }
+  .mbar__call span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-hint > :first-child { animation: none; }
+  .mbar { transition: none; }
+}

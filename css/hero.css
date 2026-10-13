@@ -1,0 +1,97 @@
+/* ---------- Hero: full-screen film with timed headline + captions ---------- */
+.hero { height: auto; position: relative; }
+.hero__stage {
+  position: relative; height: 100vh; height: 100svh; width: 100%; overflow: hidden;
+  background: #e9dcc3 url("../assets/hero/hero-bg.png") 50% 50% / cover no-repeat;
+}
+.hero__film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--ox, 50%) 50%; display: block; }
+/* very light shade only — keeps the footage bright and sharp */
+.hero__shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(247,242,232,.55) 0%, rgba(247,242,232,.18) 26%, rgba(247,242,232,0) 46%),
+    linear-gradient(to bottom, rgba(247,242,232,.5), rgba(247,242,232,0) 14%);
+}
+
+.hero__content {
+  position: absolute; left: var(--pad); bottom: clamp(70px, 11vh, 120px); top: auto; width: auto;
+  max-width: min(62rem, calc(100% - 2 * var(--pad)));
+  display: block; padding: 0; isolation: isolate;
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+  will-change: transform, opacity;
+}
+.hero__content::before {
+  display: block; content: ""; position: absolute; z-index: -1; inset: -80px -120px -50px -90px; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(247,242,232,.92) 0%, rgba(247,242,232,.8) 55%, rgba(247,242,232,0) 100%);
+}
+.hero__content.is-away { opacity: 0; transform: translate3d(0, -26px, 0); pointer-events: none; }
+.headline { font-size: clamp(2.1rem, 4.5vw, 4.7rem); text-shadow: 0 1px 24px rgba(247,242,232,.9); }
+.line { white-space: nowrap; }
+.sub { color: #3b362f; }
+
+.story {
+  position: absolute; left: var(--pad); right: auto; bottom: clamp(70px, 11vh, 120px); top: auto; translate: none;
+  width: auto; max-width: 34rem; text-align: left; padding: 0; isolation: isolate;
+  opacity: 0; transform: translate3d(0, 14px, 0); pointer-events: none;
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.story.is-on { opacity: 1; transform: none; }
+.story::before {
+  display: block; content: ""; position: absolute; z-index: -1; inset: -60px -110px -40px -90px; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(247,242,232,.9), rgba(247,242,232,.62) 55%, rgba(247,242,232,0));
+}
+.story__idx { color: var(--gold); margin-bottom: 14px; }
+.story__text { font-size: clamp(1.8rem, 3.4vw, 3.4rem); text-shadow: 0 1px 20px rgba(247,242,232,.9); }
+.story__where { display: none; }
+
+.progress { left: var(--pad); right: var(--pad); width: auto; bottom: 28px; opacity: 0; transition: opacity .8s; }
+.progress.is-on { opacity: .9; }
+.progress i { transform: scaleX(0); transition: none; }
+
+/* phones (portrait): film on top with the whole sign in frame, copy below on ivory */
+/* phones (portrait): full-screen photo, copy laid over it on a soft dark fade */
+@media (max-width: 820px) {
+  .hero__stage { height: 100svh; min-height: min(600px, 100svh); background-color: #2a2520; }
+  /* size the photo so the whole "DENTAL CLINIC" sign fits the width, then fade it into the dark base */
+  .hero__stage { background-color: #17130f; }
+  .hero__film {
+    top: 0; bottom: auto; height: min(156vw, 100%); object-position: 51% 50%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  }
+  .hero__shade {
+    background:
+      linear-gradient(to bottom, rgba(247,242,232,.78) 0, rgba(247,242,232,.35) 7%, rgba(247,242,232,0) 14%),
+      linear-gradient(to top, rgba(20,17,14,.9) 0%, rgba(20,17,14,.72) 30%, rgba(20,17,14,.25) 55%, rgba(20,17,14,0) 70%);
+  }
+  .hero__content, .story {
+    position: absolute; left: var(--pad); right: var(--pad); top: auto;
+    bottom: calc(36px + env(safe-area-inset-bottom)); width: auto; max-width: none;
+  }
+  .hero__content::before, .story::before { display: none; }
+  .hero__content .eyebrow { margin-bottom: 10px; color: #e3cf9f; }
+  .headline { font-size: clamp(1.9rem, 8.4vw, 2.6rem); color: #f7f2e8; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+  .headline em { color: #e3cf9f; }
+  .line { white-space: normal; }
+  .sub { margin-top: 12px; font-size: .95rem; line-height: 1.5; color: rgba(247,242,232,.88); }
+  .cta { margin-top: 20px; gap: 10px; }
+  .btn { padding: 14px 20px; }
+  .hero__content .btn--primary { background: #f7f2e8; color: #211e19; }
+  .hero__content .btn--ghost { border-color: rgba(247,242,232,.6); color: #f7f2e8; background: rgba(247,242,232,.08); }
+  .hero__content .btn--ghost:hover, .hero__content .btn--ghost:active { background: #f7f2e8; color: #211e19; }
+  .story__idx { margin-bottom: 10px; }
+  .story__text { font-size: clamp(1.8rem, 8vw, 2.5rem); text-shadow: none; }
+  .progress { bottom: 20px; }
+  .scroll-ind { display: none; }
+}
+/* short landscape phones: keep the cinematic overlay, drop the extras */
+@media (max-height: 480px) and (orientation: landscape) {
+  .headline { font-size: clamp(1.5rem, 4.4vw, 2.2rem); }
+  .sub, .eyebrow { display: none; }
+  .cta { margin-top: 12px; }
+  .hero__content, .story { bottom: 36px; }
+  .scroll-ind { display: none; }
+}
+
+/* reduced motion: poster frame, no playback */
+.reduced .hero__film { display: none; }
+.reduced .story, .reduced .progress, .reduced .scroll-ind { display: none; }

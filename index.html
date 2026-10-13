@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dental Clinic — Advanced Dentistry, Thoughtful Design</title>
+  <meta name="description" content="Exceptional dental care in a calm, modern environment designed around you.">
+  <meta name="theme-color" content="#f4ede1">
+  <link rel="icon" type="image/png" href="assets/tooth.png">
+  <link rel="preload" as="image" href="assets/hero/hero-bg.png" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/hero.css?v=5">
+  <link rel="stylesheet" href="css/intro.css?v=5">
+  <link rel="stylesheet" href="css/approach.css?v=5">
+  <link rel="stylesheet" href="css/sections.css?v=5">
+  <link rel="stylesheet" href="css/pages.css?v=5">
+  <link rel="stylesheet" href="css/extras.css?v=5">
+  <link rel="stylesheet" href="css/mobile.css?v=5">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="Dental Clinic — home">Dental<span>Clinic</span></a>
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#technology">Technology</a>
+      <a href="#clinic">Our Clinic</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--nav" href="#contact" data-magnetic><span class="lg">Book an Appointment</span><span class="sm">Book a visit</span></a>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+  </header>
+
+  <main id="main">
+    <!-- Pinned, scroll-scrubbed hero -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero__stage">
+        <img class="hero__film" src="assets/hero/hero-bg.png" alt="" fetchpriority="high" aria-hidden="true">
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="hero__content" id="hero-content">
+          <p class="eyebrow">Advanced dental care</p>
+          <h1 class="headline" aria-label="Where Advanced Dentistry Meets Thoughtful Design.">
+            <span class="line" aria-hidden="true"><span class="line__in">Where Advanced Dentistry</span></span>
+            <span class="line" aria-hidden="true"><span class="line__in"><em>Meets</em> Thoughtful Design.</span></span>
+          </h1>
+          <p class="sub">Exceptional dental care in a calm, modern environment designed around you.</p>
+          <div class="cta">
+            <a class="btn btn--primary" href="#contact" data-magnetic>Book an Appointment</a>
+            <a class="btn btn--ghost" href="#clinic" data-magnetic>Explore Our Clinic</a>
+          </div>
+        </div>
+        <div class="scroll-ind" id="scroll-ind" aria-hidden="true"><span>Scroll to explore</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- Chapter 2: pinned tooth + orbiting service cards -->
+    <section class="intro" id="about" aria-label="About the clinic">
+      <div class="intro__stage">
+        <div class="intro__bg" aria-hidden="true"></div>
+        <div class="intro__dust" aria-hidden="true">
+          <i style="left:12%;top:28%;animation-delay:-2s"></i><i style="left:22%;top:72%;animation-delay:-7s"></i>
+          <i style="left:34%;top:18%;animation-delay:-4s"></i><i style="left:66%;top:22%;animation-delay:-9s"></i>
+          <i style="left:78%;top:66%;animation-delay:-1s"></i><i style="left:88%;top:34%;animation-delay:-6s"></i>
+          <i style="left:55%;top:84%;animation-delay:-11s"></i><i style="left:44%;top:60%;animation-delay:-5s"></i>
+        </div>
+        <div class="intro__heading">
+          <h2 class="intro__title" aria-label="Precision care. Beautiful smiles.">
+            <span class="row">Precision Care.</span>
+            <span class="row">Beautiful Smiles.</span>
+          </h2>
+        </div>
+        <div class="scene">
+          <div class="tooth">
+            <div class="tooth__glow"></div>
+            <div class="tooth__shadow"></div>
+            <img class="tooth__img" src="assets/tooth.png" alt="Ivory molar tooth, softly lit" width="426" height="649" decoding="async">
+          </div>
+          <article class="card">
+            <div class="card__top"><span class="card__num">01</span><i class="card__bar"></i></div>
+            <h3 class="card__title"><span class="m"><span>Preventive</span></span><span class="m"><span>Care</span></span></h3>
+            <p class="card__desc">Protect your smile with personalized preventive dentistry.</p>
+          </article>
+          <article class="card">
+            <div class="card__top"><span class="card__num">02</span><i class="card__bar"></i></div>
+            <h3 class="card__title"><span class="m"><span>Advanced</span></span><span class="m"><span>Diagnostics</span></span></h3>
+            <p class="card__desc">Modern technology for accurate and comfortable diagnosis.</p>
+          </article>
+          <article class="card">
+            <div class="card__top"><span class="card__num">03</span><i class="card__bar"></i></div>
+            <h3 class="card__title"><span class="m"><span>Cosmetic</span></span><span class="m"><span>Dentistry</span></span></h3>
+            <p class="card__desc">Refined treatments designed to create confident, natural smiles.</p>
+          </article>
+          <article class="card">
+            <div class="card__top"><span class="card__num">04</span><i class="card__bar"></i></div>
+            <h3 class="card__title"><span class="m"><span>Restorative</span></span><span class="m"><span>Care</span></span></h3>
+            <p class="card__desc">Restore strength, function, and beauty with precision treatment.</p>
+          </article>
+          <article class="card">
+            <div class="card__top"><span class="card__num">05</span><i class="card__bar"></i></div>
+            <h3 class="card__title"><span class="m"><span>Patient</span></span><span class="m"><span>Comfort</span></span></h3>
+            <p class="card__desc">A calm, welcoming environment designed around your comfort.</p>
+          </article>
+          <article class="card">
+            <div class="card__top"><span class="card__num">06</span><i class="card__bar"></i></div>
+            <h3 class="card__title"><span class="m"><span>Modern</span></span><span class="m"><span>Technology</span></span></h3>
+            <p class="card__desc">Advanced dental technology supporting safer and more precise care.</p>
+          </article>
+        </div>
+        <div class="intro__progress" aria-hidden="true">
+          <span class="intro__hint">Scroll to explore</span>
+          <span class="intro__count" id="intro-count">01 / 06</span>
+          <span class="intro__dots"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></span>
+        </div>
+        <div class="intro__veil" aria-hidden="true"></div>
+      </div>
+    </section>
+    <!-- Chapter 3: Our Approach — scroll-linked storytelling -->
+    <section class="approach" id="approach" aria-label="Our approach">
+      <div class="approach__stage">
+        <div class="approach__grain" aria-hidden="true"></div>
+        <div class="approach__copy">
+          <p class="approach__label">Our Approach</p>
+          <a class="more" href="about.html">About page <span aria-hidden="true">→</span></a>
+          <div class="approach__steps">
+            <article class="step" aria-label="Step 01: Discover">
+              <span class="step__num" aria-hidden="true">01</span>
+              <h3 class="step__title">Discover</h3>
+              <p class="step__desc">Understanding your needs, concerns, goals, and expectations.</p>
+            </article>
+            <article class="step" aria-label="Step 02: Diagnose">
+              <span class="step__num" aria-hidden="true">02</span>
+              <h3 class="step__title">Diagnose</h3>
+              <p class="step__desc">Using advanced diagnostics and precise examination to understand your oral health.</p>
+            </article>
+            <article class="step" aria-label="Step 03: Treat">
+              <span class="step__num" aria-hidden="true">03</span>
+              <h3 class="step__title">Treat</h3>
+              <p class="step__desc">Creating a personalized treatment plan using modern dental techniques and technology.</p>
+            </article>
+            <article class="step" aria-label="Step 04: Restore">
+              <span class="step__num" aria-hidden="true">04</span>
+              <h3 class="step__title">Restore</h3>
+              <p class="step__desc">Focusing on long-term oral health, comfort, function, and confident smiles.</p>
+            </article>
+          </div>
+          <ol class="approach__progress" aria-hidden="true">
+            <li><span class="pg__n is-on">01</span><span class="pg__line"><i></i></span></li>
+            <li><span class="pg__n">02</span><span class="pg__line"><i></i></span></li>
+            <li><span class="pg__n">03</span><span class="pg__line"><i></i></span></li>
+            <li><span class="pg__n">04</span></li>
+          </ol>
+        </div>
+        <div class="approach__media">
+          <div class="frame">
+            <img class="ap" src="assets/stills/approach-1.jpg" alt="A dentist and patient beginning a consultation" width="1800" height="1012" decoding="async" loading="eager"><img class="ap" src="assets/stills/approach-2.jpg" alt="The dentist reviewing a digital model of the patient's teeth on a tablet" width="1800" height="1012" decoding="async" loading="lazy"><img class="ap" src="assets/stills/approach-3.jpg" alt="The dentist explaining a personalised treatment plan" width="1800" height="1012" decoding="async" loading="lazy"><img class="ap" src="assets/stills/approach-4.jpg" alt="The dentist and a smiling, confident patient" width="1800" height="1012" decoding="async" loading="lazy">
+            <div class="frame__tag" aria-hidden="true"><i></i><span>01 — Discover</span></div>
+          </div>
+        </div>
+        <div class="approach__veil" aria-hidden="true"></div>
+      </div>
+    </section>
+    <section class="sec sec--dark stats" aria-label="The clinic in numbers">
+      <div class="wrap stats__grid">
+        <div data-reveal><b data-count="15" data-suffix="+">0</b><span>Years of experience</span></div>
+        <div data-reveal style="--d:80ms"><b data-count="12000" data-suffix="+">0</b><span>Patients cared for</span></div>
+        <div data-reveal style="--d:160ms"><b data-count="98" data-suffix="%">0</b><span>Would recommend us</span></div>
+        <div data-reveal style="--d:240ms"><b data-count="6">0</b><span>Areas of care</span></div>
+      </div>
+    </section>
+    <section class="sec sec--ivory" aria-labelledby="team-h">
+      <div class="wrap">
+        <header class="sec__head" data-reveal><p class="eyebrow eyebrow--dark">The team</p><h2 class="display" id="team-h">People you'll <em>trust.</em></h2><p class="lede">A small, unhurried team — the same familiar faces from your first visit onwards.</p></header>
+        <div class="team">
+          <article class="member" data-reveal><div class="member__av" aria-hidden="true">DR</div><h3>Dr. Name Surname</h3><p class="member__role">Principal Dentist</p><p>General &amp; restorative dentistry, with a focus on calm, thorough care.</p></article>
+          <article class="member" data-reveal style="--d:80ms"><div class="member__av" aria-hidden="true">DR</div><h3>Dr. Name Surname</h3><p class="member__role">Cosmetic &amp; Implant Dentist</p><p>Smile design and implant planning with a natural, balanced result.</p></article>
+          <article class="member" data-reveal style="--d:160ms"><div class="member__av" aria-hidden="true">HY</div><h3>Name Surname</h3><p class="member__role">Dental Hygienist</p><p>Gentle professional cleaning and prevention plans built around you.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="sec sec--ivory" id="services" aria-labelledby="svc-h">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <p class="eyebrow eyebrow--dark">Services</p>
+          <h2 class="display" id="svc-h">Care, <em>composed.</em></h2>
+          <p class="lede">Every treatment is planned around your health, your comfort and the way you want to smile — explained clearly, delivered calmly.</p>
+          <a class="more" href="services.html">Services page <span aria-hidden="true">→</span></a>
+        </header>
+        <div class="chips" role="group" aria-label="Filter services" data-reveal>
+          <button type="button" class="chip is-on" data-f="all">All</button><button type="button" class="chip" data-f="everyday">Everyday</button><button type="button" class="chip" data-f="cosmetic">Cosmetic</button><button type="button" class="chip" data-f="restorative">Restorative</button><button type="button" class="chip" data-f="urgent">Urgent</button>
+        </div>
+
+        <div class="svcs">
+          <ol class="svcs__list">
+          <li class="svc" data-img="lounge" tabindex="0" data-reveal>
+            <span class="svc__n">01</span>
+            <h3 class="svc__t">Preventive & Routine Care</h3>
+            <p class="svc__d">Check-ups, professional hygiene and a prevention plan built around you.<span class="svc__tags">Check-ups · Hygiene · Fluoride</span></p>
+            <span class="svc__a" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </li>
+          <li class="svc" data-img="smile" tabindex="0" data-reveal>
+            <span class="svc__n">02</span>
+            <h3 class="svc__t">Cosmetic Dentistry</h3>
+            <p class="svc__d">Whitening, veneers and smile design with a natural, balanced result.<span class="svc__tags">Whitening · Veneers · Smile design</span></p>
+            <span class="svc__a" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </li>
+          <li class="svc" data-img="plan" tabindex="0" data-reveal>
+            <span class="svc__n">03</span>
+            <h3 class="svc__t">Restorative Dentistry</h3>
+            <p class="svc__d">Fillings, crowns and bridges that restore strength, function and ease.<span class="svc__tags">Fillings · Crowns · Bridges</span></p>
+            <span class="svc__a" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </li>
+          <li class="svc" data-img="treatment" tabindex="0" data-reveal>
+            <span class="svc__n">04</span>
+            <h3 class="svc__t">Dental Implants</h3>
+            <p class="svc__d">Considered, long-lasting tooth replacement, planned with precision.<span class="svc__tags">Planning · Placement · Aftercare</span></p>
+            <span class="svc__a" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </li>
+          <li class="svc" data-img="consult" tabindex="0" data-reveal>
+            <span class="svc__n">05</span>
+            <h3 class="svc__t">Clear Aligners</h3>
+            <p class="svc__d">Discreet orthodontics for a straighter smile, without the fuss.<span class="svc__tags">Assessment · Aligners · Retention</span></p>
+            <span class="svc__a" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </li>
+          <li class="svc" data-img="reception" tabindex="0" data-reveal>
+            <span class="svc__n">06</span>
+            <h3 class="svc__t">Emergency Care</h3>
+            <p class="svc__d">Prompt, calm relief when pain or injury can't wait.<span class="svc__tags">Same-day assessment · Pain relief</span></p>
+            <span class="svc__a" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </li>
+          </ol>
+          <div class="svcs__preview" aria-hidden="true"><div class="svcs__frame"><img src="assets/stills/lounge.jpg" alt="" loading="lazy" decoding="async" class="is-on" data-k="lounge"><img src="assets/stills/smile.jpg" alt="" loading="lazy" decoding="async" class="" data-k="smile"><img src="assets/stills/plan.jpg" alt="" loading="lazy" decoding="async" class="" data-k="plan"><img src="assets/stills/treatment.jpg" alt="" loading="lazy" decoding="async" class="" data-k="treatment"><img src="assets/stills/consult.jpg" alt="" loading="lazy" decoding="async" class="" data-k="consult"><img src="assets/stills/reception.jpg" alt="" loading="lazy" decoding="async" class="" data-k="reception"></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="sec sec--dark" aria-labelledby="visit-h">
+      <div class="wrap">
+        <header class="sec__head" data-reveal><p class="eyebrow">Your first visit</p><h2 class="display" id="visit-h">What to <em>expect.</em></h2></header>
+        <ol class="flow">
+          <li data-reveal><span>01</span><h3>Welcome &amp; conversation</h3><p>We listen first — your concerns, goals and any worries.</p></li>
+          <li data-reveal style="--d:80ms"><span>02</span><h3>Gentle examination</h3><p>A thorough check with images shared on-screen as we go.</p></li>
+          <li data-reveal style="--d:160ms"><span>03</span><h3>A clear plan</h3><p>Options, timings and costs explained before anything begins.</p></li>
+          <li data-reveal style="--d:240ms"><span>04</span><h3>Care at your pace</h3><p>Treatment when you're ready, with comfort at every step.</p></li>
+        </ol>
+      </div>
+    </section>
+    <section class="sec sec--ivory" aria-labelledby="sfaq-h">
+      <div class="wrap faq">
+        <header class="sec__head" data-reveal><p class="eyebrow eyebrow--dark">FAQ</p><h2 class="display" id="sfaq-h">Common <em>questions.</em></h2></header>
+        <div class="faq__list" data-reveal><details class="faq__i"><summary>Do I need a referral to book?</summary><p>No. You can book directly — new patients are always welcome.</p></details><details class="faq__i"><summary>Will treatment be painful?</summary><p>We aim for comfortable care. Local anaesthetic and gentle technique are used, and you can pause at any time.</p></details><details class="faq__i"><summary>How often should I have a check-up?</summary><p>Most patients benefit from a check-up and hygiene visit every six months; we will tailor this to you.</p></details><details class="faq__i"><summary>Do you treat dental emergencies?</summary><p>Yes. Call us and we will arrange a same-day assessment where possible.</p></details><details class="faq__i"><summary>Can I see costs before I commit?</summary><p>Always. You receive a clear written plan and estimate before any treatment starts.</p></details></div>
+      </div>
+    </section>
+    <section class="sec sec--dark" id="technology" aria-labelledby="tech-h">
+      <div class="wrap">
+        <header class="sec__head sec__head--row" data-reveal>
+          <div>
+            <p class="eyebrow">Technology</p>
+            <h2 class="display" id="tech-h">Precision, <em>quietly.</em></h2>
+          <a class="more" href="technology.html">Technology page <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="lede">Modern technology should disappear into the experience. Explore the treatment room and see how each detail supports safer, more precise, more comfortable care.</p>
+        </header>
+        <div class="tech">
+          <div class="tech__stage" data-reveal>
+            <div class="tech__img"><img src="assets/stills/treatment.jpg" alt="The clinic's treatment room with dental chair, light and chairside monitor" loading="lazy" decoding="async"></div>
+            <button type="button" class="spot is-on" style="left:50%;top:21%" data-i="0" aria-label="Illumination"><i></i></button><button type="button" class="spot" style="left:46%;top:40%" data-i="1" aria-label="Chairside imaging"><i></i></button><button type="button" class="spot" style="left:46%;top:66%" data-i="2" aria-label="Comfort-first chair"><i></i></button><button type="button" class="spot" style="left:64%;top:65%" data-i="3" aria-label="Precision instruments"><i></i></button><button type="button" class="spot" style="left:88%;top:50%" data-i="4" aria-label="Digital workflow"><i></i></button>
+          </div>
+          <ul class="tech__list">
+            <li class="tech__item is-on" data-i="0">
+              <button type="button" aria-expanded="true"><span class="tech__n">01</span><span class="tech__h">Illumination</span></button>
+              <p>Shadow-free, adjustable light so every detail is clear — and your eyes stay comfortable.</p>
+            </li>
+            <li class="tech__item" data-i="1">
+              <button type="button" aria-expanded="false"><span class="tech__n">02</span><span class="tech__h">Chairside imaging</span></button>
+              <p>See what we see. Images are shared on-screen so you understand every step.</p>
+            </li>
+            <li class="tech__item" data-i="2">
+              <button type="button" aria-expanded="false"><span class="tech__n">03</span><span class="tech__h">Comfort-first chair</span></button>
+              <p>Supportive, posture-neutral seating designed for longer, calmer appointments.</p>
+            </li>
+            <li class="tech__item" data-i="3">
+              <button type="button" aria-expanded="false"><span class="tech__n">04</span><span class="tech__h">Precision instruments</span></button>
+              <p>Quiet, finely balanced instruments for gentle, accurate treatment.</p>
+            </li>
+            <li class="tech__item" data-i="4">
+              <button type="button" aria-expanded="false"><span class="tech__n">05</span><span class="tech__h">Digital workflow</span></button>
+              <p>Records, scans and plans live in one place, keeping your care joined-up.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="sec sec--dark" aria-labelledby="ben-h">
+      <div class="wrap">
+        <header class="sec__head" data-reveal><p class="eyebrow">Why it matters</p><h2 class="display" id="ben-h">Technology that <em>serves you.</em></h2></header>
+        <div class="values__grid values__grid--dark">
+          <div data-reveal><span>01</span><h3>Fewer, shorter visits</h3><p>Digital planning means more done, accurately, in less time.</p></div>
+          <div data-reveal style="--d:80ms"><span>02</span><h3>Less discomfort</h3><p>Precise tools and quiet instruments for gentler treatment.</p></div>
+          <div data-reveal style="--d:160ms"><span>03</span><h3>Full transparency</h3><p>Images and plans shared with you, in plain language.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="sec sec--ivory" aria-labelledby="safe-h">
+      <div class="wrap">
+        <header class="sec__head" data-reveal><p class="eyebrow eyebrow--dark">Safety</p><h2 class="display" id="safe-h">Clean, by <em>design.</em></h2><p class="lede">Our sterilisation process is built to be invisible and uncompromising.</p></header>
+        <ol class="flow flow--light">
+          <li data-reveal><span>01</span><h3>Clean</h3><p>Instruments are cleaned immediately after each patient.</p></li>
+          <li data-reveal style="--d:80ms"><span>02</span><h3>Sterilise</h3><p>Hospital-grade steam sterilisation, every cycle logged.</p></li>
+          <li data-reveal style="--d:160ms"><span>03</span><h3>Seal</h3><p>Instruments stay sealed until opened in front of you.</p></li>
+          <li data-reveal style="--d:240ms"><span>04</span><h3>Reset</h3><p>Surfaces are disinfected and the room reset between visits.</p></li>
+        </ol>
+      </div>
+    </section>
+    <section class="gallery" id="clinic" aria-labelledby="clinic-h">
+      <div class="gallery__stage">
+        <header class="gallery__head">
+          <p class="eyebrow eyebrow--dark">Our clinic</p>
+          <h2 class="display" id="clinic-h">Designed <em>around you.</em></h2>
+          <p class="lede">A space shaped by light, texture and calm — from the first step through the door.</p>
+          <a class="more" href="clinic.html">Clinic page <span aria-hidden="true">→</span></a>
+        </header>
+        <div class="gallery__track" id="gallery-track">
+          <figure class="panel">
+            <div class="panel__img"><img src="assets/stills/entrance.jpg" alt="The entrance — warm light, natural timber and greenery." loading="lazy" decoding="async"></div>
+            <figcaption><span>01</span><b>Arrival</b><em>The entrance — warm light, natural timber and greenery.</em></figcaption>
+          </figure>
+          <figure class="panel">
+            <div class="panel__img"><img src="assets/stills/reception.jpg" alt="A calm, considered first impression." loading="lazy" decoding="async"></div>
+            <figcaption><span>02</span><b>Reception</b><em>A calm, considered first impression.</em></figcaption>
+          </figure>
+          <figure class="panel">
+            <div class="panel__img"><img src="assets/stills/lounge.jpg" alt="Soft seating and daylight while you wait." loading="lazy" decoding="async"></div>
+            <figcaption><span>03</span><b>Lounge</b><em>Soft seating and daylight while you wait.</em></figcaption>
+          </figure>
+          <figure class="panel">
+            <div class="panel__img"><img src="assets/stills/consult.jpg" alt="Unhurried conversations, in comfort." loading="lazy" decoding="async"></div>
+            <figcaption><span>04</span><b>Consultation</b><em>Unhurried conversations, in comfort.</em></figcaption>
+          </figure>
+          <figure class="panel">
+            <div class="panel__img"><img src="assets/stills/treatment.jpg" alt="Quiet technology, thoughtfully placed." loading="lazy" decoding="async"></div>
+            <figcaption><span>05</span><b>Treatment room</b><em>Quiet technology, thoughtfully placed.</em></figcaption>
+          </figure>
+          <figure class="panel">
+            <div class="panel__img"><img src="assets/stills/smile.jpg" alt="Care you can feel — and a smile you'll want to share." loading="lazy" decoding="async"></div>
+            <figcaption><span>06</span><b>The result</b><em>Care you can feel — and a smile you'll want to share.</em></figcaption>
+          </figure>
+        </div>
+        <div class="gallery__bar" aria-hidden="true"><span id="gallery-count">01 / 06</span><i><b id="gallery-fill"></b></i></div>
+      </div>
+    </section>
+    <section class="sec sec--ivory" aria-labelledby="hrs-h">
+      <div class="wrap visit">
+        <div data-reveal>
+          <p class="eyebrow eyebrow--dark">Plan your visit</p>
+          <h2 class="display" id="hrs-h">Come <em>say hello.</em></h2>
+          <p class="open" data-open-now><i></i><span>Checking hours…</span></p>
+          <table class="hours"><tbody>
+            <tr data-day="1"><th>Monday</th><td>9:00 – 18:00</td></tr><tr data-day="2"><th>Tuesday</th><td>9:00 – 18:00</td></tr><tr data-day="3"><th>Wednesday</th><td>9:00 – 18:00</td></tr><tr data-day="4"><th>Thursday</th><td>9:00 – 18:00</td></tr><tr data-day="5"><th>Friday</th><td>9:00 – 18:00</td></tr><tr data-day="6"><th>Saturday</th><td>10:00 – 14:00</td></tr><tr data-day="0"><th>Sunday</th><td>Closed</td></tr>
+          </tbody></table>
+        </div>
+        <div class="visit__cards">
+          <div class="tile" data-reveal><span>Getting here</span><h3>12 Example Street</h3><p>Your City, 00000 — step-free entrance from the street.</p><a class="more" href="https://www.google.com/maps/search/?api=1&amp;query=12+Example+Street+Your+City" target="_blank" rel="noopener">Get directions <span aria-hidden="true">→</span></a></div>
+          <div class="tile" data-reveal style="--d:80ms"><span>Accessibility</span><h3>Open to everyone</h3><p>Step-free access, quiet waiting space and extra time on request.</p></div>
+          <div class="tile" data-reveal style="--d:160ms"><span>Bring with you</span><h3>Just yourself</h3><p>A list of medications and any recent images, if you have them.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="sec sec--ivory contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap contact__grid">
+        <div class="contact__info" data-reveal>
+          <p class="eyebrow eyebrow--dark">Contact</p>
+          <h2 class="display" id="contact-h">Your smile <em>starts here.</em></h2>
+          <p class="lede">Tell us a little about what you need and we'll arrange a time that suits you. New patients are always welcome.</p>
+          <a class="more" href="contact.html">Contact page <span aria-hidden="true">→</span></a>
+          <dl class="details">
+            <div><dt>Visit</dt><dd>12 Example Street<br>Your City, 00000</dd></div>
+            <div><dt>Hours</dt><dd>Mon – Fri &nbsp;9:00 – 18:00<br>Sat &nbsp;10:00 – 14:00</dd></div>
+            <div><dt>Call</dt><dd><a href="tel:+10000000000">+1 (000) 000-0000</a></dd></div>
+            <div><dt>Write</dt><dd><a href="mailto:hello@dentalclinic.example">hello@dentalclinic.example</a></dd></div>
+          </dl>
+        </div>
+        <form class="form" id="booking" novalidate data-reveal>
+          <div class="form__fields">
+            <label class="fld"><span>Full name</span><input name="name" type="text" autocomplete="name" required></label>
+            <label class="fld"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
+            <label class="fld fld--wide"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+            <label class="fld"><span>Treatment</span><select name="service"><option>Preventive & routine care</option><option>Cosmetic dentistry</option><option>Restorative dentistry</option><option>Dental implants</option><option>Clear aligners</option><option>Emergency care</option><option>Not sure yet</option></select></label>
+            <label class="fld"><span>Preferred time</span><select name="time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
+            <label class="fld fld--wide"><span>Anything we should know? <small>(optional)</small></span><textarea name="note" rows="3"></textarea></label>
+          </div>
+          <button class="btn btn--primary form__submit" type="submit" data-magnetic>Request an appointment</button>
+          <p class="form__note">We'll reply within one working day. Your details are used only to arrange your visit.</p>
+          <div class="form__ok" role="status" aria-live="polite" hidden>
+            <span class="form__tick" aria-hidden="true"></span>
+            <h3>Thank you.</h3>
+            <p>Your request has arrived. We'll be in touch shortly to confirm a time.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__mark" aria-hidden="true">Dental <em>Clinic</em></p>
+      <div class="foot__cols">
+        <div><h4>Explore</h4><a href="#about">About</a><a href="#services">Services</a><a href="#technology">Technology</a><a href="#clinic">Our Clinic</a></div>
+        <div><h4>Visit</h4><span>12 Example Street<br>Your City, 00000</span><a href="#contact">Book an appointment</a></div>
+        <div><h4>Hours</h4><span>Mon – Fri 9:00 – 18:00<br>Sat 10:00 – 14:00</span></div>
+      </div>
+      <p class="foot__legal"><span>© 2026 Dental Clinic. All rights reserved.</span><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/hero.js?v=5"></script>
+  <script src="js/intro.js?v=5"></script>
+  <script src="js/approach.js?v=5"></script>
+  <script src="js/sections.js?v=5"></script>
+  <script src="js/extras.js?v=5"></script>
+</body>
+</html>
