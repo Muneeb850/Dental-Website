@@ -28,6 +28,7 @@
   svcs.forEach((s) => {
     s.addEventListener('mouseenter', () => setSvc(s));
     s.addEventListener('focus', () => setSvc(s));
+    s.addEventListener('click', () => setSvc(s));
   });
   if (svcs[0]) svcs[0].classList.add('is-on');
   // on touch / narrow screens, highlight the row nearest the viewport centre

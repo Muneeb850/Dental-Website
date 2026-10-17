@@ -12,6 +12,14 @@
 
 .team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .member { padding: 28px; border: 1px solid rgba(38,35,31,.16); border-radius: 6px; background: var(--cream); }
+/* team photos: arched portrait that wipes in, then zooms gently on hover */
+.member__ph { position: relative; margin: -12px -12px 22px; aspect-ratio: 4 / 4.4; overflow: hidden; border-radius: 160px 160px 6px 6px; background: var(--beige); clip-path: inset(100% 0 0 0 round 160px 160px 6px 6px); transition: clip-path 1.4s var(--ease) calc(var(--d, 0ms) + 150ms); }
+.member.is-in .member__ph { clip-path: inset(0 0 0 0 round 160px 160px 6px 6px); }
+.member__ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; transform: scale(1.12); transition: transform 1.8s var(--ease) calc(var(--d, 0ms) + 150ms); }
+.member.is-in .member__ph img { transform: scale(1); }
+.member:hover .member__ph img { transform: scale(1.06); transition-delay: 0ms; }
+.member__ph::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(183,154,98,.35); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .member__ph { clip-path: none; } .member__ph img { transform: none; } }
 .member__av { display: grid; place-items: center; width: 84px; height: 84px; margin-bottom: 22px; border-radius: 50%; background: var(--beige); color: #8a6d36; font: 500 1.5rem var(--serif); letter-spacing: .06em; }
 .member h3 { margin: 0 0 4px; font: 400 1.7rem/1.1 var(--serif); }
 .member__role { margin: 0 0 12px; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }

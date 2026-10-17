@@ -77,6 +77,10 @@
   .is-hint > :first-child { animation: swipeHint 1.4s var(--ease) .6s 1 both; }
   @keyframes swipeHint { 40% { transform: translateX(-26px); } }
 
+  /* services: keep the photo on phones — a sticky banner above the list that changes as you scroll */
+  .svcs__preview { display: block; order: -1; position: sticky; top: 68px; z-index: 3; margin: 0 0 18px; }
+  .svcs__frame { aspect-ratio: 2 / 1; border-radius: 16px; box-shadow: 0 24px 40px -26px rgba(60,45,25,.55), 0 0 0 1px rgba(183,154,98,.25); }
+
   /* stats: 2 × 2 grid */
   .stats__grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
   .stats__grid b { font-size: clamp(2.6rem, 12vw, 3.4rem); }
