@@ -29,3 +29,45 @@
 
 @media (max-width: 960px) { .tiles__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .tiles__grid { grid-template-columns: 1fr; } .tile { min-height: 11rem; } }
+
+/* ---------- Page header with an animated photo ---------- */
+.page-hero--media { padding-bottom: clamp(56px, 10vh, 110px); overflow: hidden; }
+.ph { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.ph__media { position: relative; margin: 0; aspect-ratio: 4 / 4.6; }
+.ph__img { position: absolute; inset: 0; overflow: hidden; border-radius: 220px 220px 10px 10px; box-shadow: 0 40px 80px -40px rgba(38,35,31,.45); clip-path: inset(100% 0 0 0 round 220px 220px 10px 10px); animation: phWipe 1.6s var(--ease) .15s forwards; }
+.ph__img img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.18); animation: phZoom 2.2s var(--ease) .15s forwards, kenburns 22s ease-in-out 2.4s infinite alternate; }
+.ph__ring { position: absolute; inset: -18px; border: 1px solid rgba(183,154,98,.5); border-radius: 240px 240px 20px 20px; opacity: 0; transform: scale(.96); animation: phRing 1.8s var(--ease) .9s forwards; pointer-events: none; }
+.ph__badge { position: absolute; left: -28px; bottom: 34px; display: flex; align-items: center; gap: 12px; padding: 12px 18px 12px 12px; border-radius: 999px; background: rgba(247,242,232,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 18px 40px -18px rgba(38,35,31,.4); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; opacity: 0; animation: phBadge .9s var(--ease) 1.3s forwards, floaty 5s ease-in-out 2.2s infinite; }
+.ph__badge img { width: 26px; height: auto; padding: 6px; box-sizing: content-box; border-radius: 50%; background: var(--beige); animation: spinTooth 9s linear infinite; }
+@keyframes phWipe { to { clip-path: inset(0 0 0 0 round 220px 220px 10px 10px); } }
+@keyframes phZoom { to { transform: scale(1.04); } }
+@keyframes kenburns { from { transform: scale(1.04) translate3d(0, 0, 0); } to { transform: scale(1.14) translate3d(-2%, -2%, 0); } }
+@keyframes phRing { to { opacity: 1; transform: none; } }
+@keyframes phBadge { from { opacity: 0; transform: translate3d(0, 16px, 0); } to { opacity: 1; transform: none; } }
+@keyframes floaty { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes spinTooth { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+.page-hero--media .lede { margin-top: 22px; }
+
+/* inner pages: nav without the booking button */
+.nav--page .nav__links { margin-right: 0; }
+
+/* inner pages: slim footer — brand, page links, legal */
+.foot--min { padding-top: clamp(56px, 9vh, 100px); }
+.foot--min .foot__mark { margin-bottom: 36px; }
+.foot__row { display: flex; flex-wrap: wrap; gap: 14px 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(239,230,212,.14); }
+.foot__row a { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; opacity: .8; transition: opacity .3s, color .3s; }
+.foot__row a:hover, .foot__row a[aria-current] { opacity: 1; color: #d4b676; }
+
+@media (max-width: 820px) {
+  .ph { grid-template-columns: 1fr; gap: 34px; }
+  .ph__media { aspect-ratio: 4 / 3.6; margin: 0 6px; }
+  .ph__img { border-radius: 160px 160px 10px 10px; clip-path: inset(100% 0 0 0 round 160px 160px 10px 10px); }
+  @keyframes phWipe { to { clip-path: inset(0 0 0 0 round 160px 160px 10px 10px); } }
+  .ph__ring { inset: -10px; border-radius: 170px 170px 18px 18px; }
+  .ph__badge { left: 10px; bottom: 16px; }
+  .nav--page .nav__toggle { margin-left: auto; }
+  .foot__row { gap: 14px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ph__img, .ph__img img, .ph__ring, .ph__badge, .ph__badge img { animation: none; clip-path: none; opacity: 1; transform: none; }
+}

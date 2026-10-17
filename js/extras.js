@@ -172,12 +172,13 @@
     }
   });
 
-  /* sticky Call / Book bar: shows after the first screen, hides near the booking form and footer */
+  /* sticky Call / Book bar (home page only): shows after the first screen, hides near the booking form and footer */
   const onHome = !!document.querySelector('.hero');
+  if (!onHome) return;
   const bar = document.createElement('nav');
   bar.className = 'mbar'; bar.setAttribute('aria-label', 'Quick actions');
   bar.innerHTML = '<a class="mbar__call" href="tel:+10000000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Call</span></a>'
-    + `<a class="mbar__book" href="${onHome ? '#contact' : 'contact.html'}">Book a visit</a>`;
+    + '<a class="mbar__book" href="#contact">Book a visit</a>';
   document.body.appendChild(bar);
   const blockers = [...document.querySelectorAll('#booking, .foot')];
   const seen = new Set();
