@@ -79,6 +79,43 @@
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(95,154,98,.5); } 70%, 100% { box-shadow: 0 0 0 9px rgba(95,154,98,0); } }
 .emerg .lede { margin-bottom: 0; }
 
+/* ---------- Contact details: icon cards ---------- */
+.details--cards { grid-template-columns: 1fr 1fr; gap: 14px; }
+.dcard {
+  position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px 22px 20px; margin: 0;
+  border-radius: 18px; background: #fbf7ee; border: 1px solid rgba(183,154,98,.22);
+  box-shadow: 0 18px 36px -30px rgba(60,45,25,.5); overflow: hidden;
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease), opacity 1.2s var(--ease), filter 1.2s var(--ease);
+}
+.dcard::before { content: ""; position: absolute; left: 22px; right: 22px; top: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--gold), rgba(183,154,98,0)); transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease) calc(var(--d, 0ms) + 250ms); }
+.dcard.is-in::before { transform: scaleX(1); }
+.dcard:hover { transform: translateY(-4px); border-color: rgba(183,154,98,.55); box-shadow: 0 28px 46px -30px rgba(60,45,25,.6); }
+.dcard__ic { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 8px; border-radius: 14px; background: var(--beige); color: #8a6d36; transition: transform .6s cubic-bezier(.34,1.56,.64,1), background .5s var(--ease), color .5s var(--ease); }
+.dcard__ic svg { width: 22px; height: 22px; }
+.dcard:hover .dcard__ic { transform: rotate(-8deg) scale(1.08); background: var(--charcoal); color: #efe6d4; }
+.dcard dt { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; font-size: .64rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+.dcard dd { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--charcoal); overflow-wrap: anywhere; }
+.dcard dd a { background: none; }
+.dcard__act { margin-top: auto !important; padding-top: 12px; }
+.dcard__act a { display: inline-flex; gap: .45em; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: #8a6d36; border-bottom: 1px solid rgba(138,109,54,.4); padding-bottom: 3px; transition: gap .4s var(--ease), color .3s; }
+.dcard__act a:hover { gap: .8em; color: var(--charcoal); }
+.hrow { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px dashed rgba(38,35,31,.12); font-size: .94rem; }
+.hrow:last-child { border-bottom: 0; }
+.hrow b { font-weight: 500; }
+.hrow span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.hrow--off span { color: #b0584a; }
+.open--sm { padding: 4px 10px; gap: 6px; font-size: .56rem; letter-spacing: .1em; background: var(--cream); color: var(--charcoal); }
+.open--sm i { width: 6px; height: 6px; }
+@media (max-width: 560px) {
+  .details--cards { grid-template-columns: 1fr; gap: 12px; }
+  .dcard { flex-direction: row; flex-wrap: wrap; align-items: flex-start; column-gap: 14px; padding: 18px; }
+  .dcard__ic { margin: 0; flex: none; }
+  .dcard dt { flex: 1 1 calc(100% - 60px); min-height: 44px; }
+  .dcard dd { flex: 1 1 100%; }
+  .dcard__act { padding-top: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .dcard::before { transform: none; transition: none; } }
+
 .lb { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 56px 72px; background: rgba(20,18,15,.92); }
 .lb[hidden] { display: none; }
 .lb figure { margin: 0; max-width: min(1200px, 100%); }
