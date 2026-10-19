@@ -109,15 +109,7 @@
   }
   window.addEventListener('resize', measure);
 
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({
-      trigger: section, start: 'top top', end: 'bottom bottom',
-      onUpdate: (self) => { target = self.progress; request(); },
-      onRefresh: (self) => { target = self.progress; request(); },
-    });
-  } else {
-    window.addEventListener('scroll', measure, { passive: true });
-  }
-  measure();
+  // cached scroll progress (js/scroll.js) — no layout reads while scrolling
+  if (window.scrollProgress) window.scrollProgress(section, (p) => { target = p; request(); });
+  else { window.addEventListener('scroll', measure, { passive: true }); measure(); }
 })();

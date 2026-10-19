@@ -116,9 +116,9 @@
         `translate(-50%,-50%) translate3d(${xs.toFixed(1)}px,${(y * H / 100).toFixed(1)}px,${z.toFixed(1)}px) ` +
         `rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) rotateZ(${tilt.toFixed(2)}deg) scale(${s.toFixed(3)})`;
       el.style.opacity = vis.toFixed(3);
-      el.style.filter = bl > 0.05 ? `blur(${bl.toFixed(2)}px)` : 'none';
-      el.style.zIndex = Math.round(10 + z / 10);
-      el.style.visibility = vis < 0.01 ? 'hidden' : 'visible';
+      const zi = Math.round(10 + z / 10), hide = vis < 0.01;
+      if (el._zi !== zi) { el._zi = zi; el.style.zIndex = zi; }
+      if (el._hide !== hide) { el._hide = hide; el.style.visibility = hide ? 'hidden' : 'visible'; }
       if (Math.abs(d) < 0.5) active = i;
     });
     if (active !== lastActive) {
@@ -145,7 +145,6 @@
     const hOut = smooth(clamp((p - 0.04) / 0.1));
     heading.style.opacity = (1 - hOut).toFixed(3);
     heading.style.transform = `translate3d(0,${(-hOut * 40).toFixed(1)}px,0)`;
-    heading.style.filter = hOut > 0.02 ? `blur(${(hOut * 8).toFixed(1)}px)` : 'none';
 
     /* progress */
     const idx = clamp(Math.round(t), 0, N - 1);
@@ -169,15 +168,7 @@
   }
   window.addEventListener('resize', () => { W = window.innerWidth; H = window.innerHeight; forceRender = true; measure(); });
 
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({
-      trigger: section, start: 'top top', end: 'bottom bottom',
-      onUpdate: (self) => { target = self.progress; request(); },
-      onRefresh: (self) => { target = self.progress; request(); },
-    });
-  } else {
-    window.addEventListener('scroll', measure, { passive: true });
-  }
-  measure();
+  // cached scroll progress (js/scroll.js) — no layout reads while scrolling
+  if (window.scrollProgress) window.scrollProgress(section, (p) => { target = p; request(); });
+  else { window.addEventListener('scroll', measure, { passive: true }); measure(); }
 })();

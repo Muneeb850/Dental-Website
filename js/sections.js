@@ -64,11 +64,14 @@
   const fill = document.getElementById('gallery-fill');
   const gHead = document.querySelector('.gallery__head');
   const panels = track ? [...track.querySelectorAll('.panel')] : [];
-  let gTarget = 0, gShown = 0, gTick = false, maxX = 0, gLast = -1, gForce = true;
+  let gTarget = 0, gShown = 0, gTick = false, maxX = 0, gLast = -1, gForce = true, gBest = -1;
 
+  let geo = [], vw = window.innerWidth;
   function measureGallery() {
     if (!track) return;
-    maxX = Math.max(0, track.scrollWidth - window.innerWidth);
+    vw = window.innerWidth;
+    maxX = Math.max(0, track.scrollWidth - vw);
+    geo = panels.map((p) => ({ mid: p.offsetLeft + p.offsetWidth / 2, img: p.firstElementChild.firstElementChild }));
   }
   function renderGallery() {
     if (!track) return;
@@ -79,20 +82,14 @@
     gLast = gShown; gForce = false;
     const x = -gShown * maxX;
     track.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
-    // slow parallax inside each frame
-    const vw = window.innerWidth;
-    panels.forEach((p) => {
-      const r = p.offsetLeft + x;
-      const c = (r + p.offsetWidth / 2 - vw / 2) / vw;       // -1..1 around centre
-      p.firstElementChild.firstElementChild.style.transform = `translate3d(${(c * -6).toFixed(2)}%,0,0)`;
-    });
-    // active index = panel closest to the viewport's 40% line
+    // slow parallax inside each frame (geometry cached in measureGallery — no layout reads per frame)
     let best = 0, bd = 1e9;
-    panels.forEach((p, i) => {
-      const d = Math.abs(p.offsetLeft + x + p.offsetWidth / 2 - vw * 0.5);
-      if (d < bd) { bd = d; best = i; }
+    geo.forEach((g, i) => {
+      const off = g.mid + x - vw / 2;
+      g.img.style.transform = `translate3d(${((off / vw) * -6).toFixed(2)}%,0,0)`;
+      if (Math.abs(off) < bd) { bd = Math.abs(off); best = i; }
     });
-    count.textContent = `0${best + 1} / 0${panels.length}`;
+    if (best !== gBest) { gBest = best; count.textContent = `0${best + 1} / 0${panels.length}`; }
     fill.style.transform = `scaleX(${gShown.toFixed(3)})`;
     const hf = clamp(gShown / 0.16);
     if (gHead) {
@@ -111,10 +108,11 @@
   }
 
   /* ---------- Technology parallax on scroll ---------- */
-  function techParallax() {
+  function techParallax(s) {
     if (!techImg) return;
-    const r = techImg.parentElement.getBoundingClientRect();
-    const c = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+    // progress 0..1 while the section crosses the viewport -> -1..1 around centre (no layout reads)
+    const c = s && typeof s.progress === 'number' ? 1 - s.progress * 2
+      : (() => { const r = techImg.parentElement.getBoundingClientRect(); return (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight; })();
     techImg.style.transform = `translate3d(0,${(c * -4).toFixed(2)}%,0)`;
   }
 
@@ -122,18 +120,14 @@
     measureGallery();
     window.addEventListener('resize', () => { gForce = true; measureGallery(); measureG(); });
     window.addEventListener('load', () => { gForce = true; measureGallery(); measureG(); });
-    if (window.gsap && window.ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger);
-      if (gal) ScrollTrigger.create({
-        trigger: gal, start: 'top top', end: 'bottom bottom',
-        onUpdate: (s) => { gTarget = s.progress; reqGallery(); },
-        onRefresh: (s) => { measureGallery(); gTarget = s.progress; reqGallery(); },
-      });
-      if (techImg) ScrollTrigger.create({ trigger: '.tech', start: 'top bottom', end: 'bottom top', onUpdate: techParallax });
+    // cached scroll progress (js/scroll.js) — no layout reads while scrolling
+    if (window.scrollProgress) {
+      if (gal) window.scrollProgress(gal, (p) => { gTarget = p; reqGallery(); });
+      if (techImg) window.scrollProgress(document.querySelector('.tech'), (p) => techParallax({ progress: p }), 'cross');
     } else {
       window.addEventListener('scroll', () => { measureG(); techParallax(); }, { passive: true });
+      measureG(); techParallax();
     }
-    measureG(); techParallax();
   }
 
   /* ---------- Booking form (front-end only) ---------- */

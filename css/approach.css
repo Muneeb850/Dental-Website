@@ -13,7 +13,7 @@
 .approach__label { margin: 0 0 clamp(14px, 3vh, 34px); font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; }
 .approach__label::after { content: ""; width: 44px; height: 1px; background: var(--gold); opacity: .7; }
 .approach__steps { display: grid; }
-.step { grid-area: 1 / 1; will-change: transform, opacity, filter; }
+.step { grid-area: 1 / 1; will-change: transform, opacity; }
 .step__num {
   display: block; font-family: var(--serif); font-weight: 300; line-height: .85;
   font-size: clamp(5.5rem, 12vw, 11.5rem); color: transparent; letter-spacing: -.02em;

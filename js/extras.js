@@ -2,8 +2,22 @@
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* warm up photos while the page is idle, so they are decoded before they scroll into view
+     (decoding a large photo mid-scroll is what caused the first-visit stutter) */
+  const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 200));
+  window.addEventListener('load', () => {
+    const queue = [...document.querySelectorAll('img[loading="lazy"]')];
+    const next = () => {
+      const img = queue.shift();
+      if (!img) return;
+      img.loading = 'eager';
+      (img.decode ? img.decode() : Promise.resolve()).catch(() => {}).then(() => idle(next));
+    };
+    idle(next);
+  });
+
   /* count-up numbers */
-  const fmt = (n) => n.toLocaleString('en-US');
+  const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const counters = [...document.querySelectorAll('[data-count]')];
   if (counters.length) {
     const run = (el) => {

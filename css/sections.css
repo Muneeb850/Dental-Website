@@ -11,8 +11,8 @@
 .sec--dark .eyebrow { color: #d4b676; }
 
 /* scroll reveals */
-[data-reveal] { opacity: 0; transform: translate3d(0, 28px, 0); filter: blur(6px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease); transition-delay: var(--d, 0ms); }
-[data-reveal].is-in { opacity: 1; transform: none; filter: none; }
+[data-reveal] { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); transition-delay: var(--d, 0ms); }
+[data-reveal].is-in { opacity: 1; transform: none; }
 
 /* ---------- Services ---------- */
 .svcs { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(32px, 6vw, 100px); align-items: start; }
@@ -155,11 +155,11 @@
 .nav__links a[aria-current]::after{transform:scaleX(1)}
 
 /* nav over dark sections */
-.nav.nav--dark { background: rgba(33,30,25,.8); color: #efe6d4; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding-block: 12px; }
+.nav.nav--dark { background: rgba(33,30,25,.96); color: #efe6d4; padding-block: 12px; }
 .nav.nav--dark .nav__toggle span { background: #efe6d4; }
 .nav.nav--dark .btn--nav { background: #efe6d4; color: #211e19; }
 .nav.nav--dark .btn--nav:hover { background: var(--gold); }
-.nav, .nav .btn--nav, .nav__toggle span { transition: background .5s var(--ease), color .5s var(--ease), padding .5s var(--ease), backdrop-filter .5s var(--ease), transform .45s var(--ease); }
+.nav, .nav .btn--nav, .nav__toggle span { transition: background .5s var(--ease), color .5s var(--ease), padding .5s var(--ease), transform .45s var(--ease); }
 
 @media (max-width: 480px) {
   .details { grid-template-columns: 1fr; gap: 20px; }

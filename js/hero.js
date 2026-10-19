@@ -35,11 +35,17 @@
   }
 
   /* ---------- Scroll: hide the cue, solid nav ---------- */
+  const forceSolid = nav.hasAttribute('data-solid');
+  let cueGone = false, solid = null, vh = window.innerHeight;
+  window.addEventListener('resize', () => { vh = window.innerHeight; }, { passive: true });
   function onScroll() {
     const y = window.scrollY;
-    scrollInd.style.opacity = y > 40 ? 0 : '';
-    if (y > 40) { scrollInd.style.animation = 'none'; scrollInd.style.transition = 'opacity .5s'; }
-    nav.classList.toggle('is-solid', nav.hasAttribute('data-solid') || y > window.innerHeight * 0.8);
+    if (!cueGone && y > 40) {
+      cueGone = true;
+      scrollInd.style.animation = 'none'; scrollInd.style.transition = 'opacity .5s'; scrollInd.style.opacity = 0;
+    }
+    const s = forceSolid || y > vh * 0.8;
+    if (s !== solid) { solid = s; nav.classList.toggle('is-solid', s); }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

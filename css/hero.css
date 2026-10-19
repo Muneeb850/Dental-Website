@@ -2,7 +2,7 @@
 .hero { height: auto; position: relative; }
 .hero__stage {
   position: relative; height: 100vh; height: 100svh; width: 100%; overflow: hidden;
-  background: #e9dcc3 url("../assets/hero/hero-bg.png") 50% 50% / cover no-repeat;
+  background: #e9dcc3 url("../assets/hero/hero-bg.jpg") 50% 50% / cover no-repeat;
 }
 .hero__film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--ox, 50%) 50%; display: block; }
 /* very light shade only — keeps the footage bright and sharp */

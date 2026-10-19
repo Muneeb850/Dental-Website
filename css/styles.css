@@ -30,11 +30,10 @@ a { color: inherit; text-decoration: none; }
   display: flex; align-items: center; gap: 32px;
   padding: 18px var(--pad);
   background: linear-gradient(to bottom, rgba(247,242,232,.6), rgba(247,242,232,.2) 65%, rgba(247,242,232,0));
-  transition: background .5s var(--ease), backdrop-filter .5s var(--ease), padding .5s var(--ease);
+  transition: background .5s var(--ease), padding .5s var(--ease);
 }
 .nav.is-solid {
-  background: rgba(247,242,232,.78);
-  -webkit-backdrop-filter: blur(14px) saturate(1.1); backdrop-filter: blur(14px) saturate(1.1);
+  background: rgba(247,242,232,.96);
   padding-block: 12px;
 }
 .nav__brand { font-family: var(--serif); font-size: 1.55rem; letter-spacing: .02em; font-weight: 500; }
@@ -63,12 +62,12 @@ a { color: inherit; text-decoration: none; }
 .btn--primary, .btn--nav { background: var(--charcoal); color: var(--ivory); }
 .btn--primary:hover, .btn--nav:hover { background: var(--gold); color: var(--charcoal); transform: scale(1.03); }
 .btn--nav { padding: 13px 22px; font-size: .7rem; }
-.btn--ghost { border-color: rgba(38,35,31,.45); color: var(--charcoal); background: rgba(247,242,232,.35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.btn--ghost { border-color: rgba(38,35,31,.45); color: var(--charcoal); background: rgba(247,242,232,.55); }
 .btn--ghost:hover { background: var(--charcoal); color: var(--ivory); transform: scale(1.03); }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; height: 250vh; height: 250svh; }
-.hero__stage { position: sticky; top: 0; height: 100vh; height: 100svh; width: 100%; overflow: hidden; background: var(--cream) url("../assets/hero/scene-1.webp") 50% 50% / cover no-repeat; }
+.hero__stage { position: sticky; top: 0; height: 100vh; height: 100svh; width: 100%; overflow: hidden; background: var(--cream); }
 .hero__scenes { position: absolute; inset: 0; overflow: hidden; transform: translateZ(0); will-change: transform; }
 .hero__scenes img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;
@@ -161,7 +160,7 @@ a { color: inherit; text-decoration: none; }
   .nav { gap: 12px; }
   .nav__links {
     position: fixed; inset: 0; flex-direction: column; justify-content: center; align-items: center; gap: 26px;
-    background: rgba(247,242,232,.96); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    background: var(--ivory);
     opacity: 0; visibility: hidden; transition: opacity .4s var(--ease), visibility .4s;
   }
   .nav__links a { font-family: var(--serif); font-size: 2rem; letter-spacing: 0; text-transform: none; }
